@@ -83,8 +83,8 @@ if(strpos($lines, $site) === false){
 	//içeride biz daha önce bir tanımlama yapmışımyız ona bakıyor.
 	//false olmadığı anlamına geliyor.
 	//string position'ı bulamadığı için false dönüyor. (site varsa)
-	shell_exec('echo "'.REMOTE_IP ."\t\t".$site.'" >> '.$hostFileLocation);
-	//buradaki \t tab anlamına geliyor, içerisine iki kere tab'e basılmış gibi yapıyor.
+	shell_exec('echo "'.REMOTE_IP ."\t".$site.'" >> '.$hostFileLocation);
+	//buradaki \t tab anlamına geliyor, içerisine bir kere tab'e basılmış gibi yapıyor.
 }
 
 //aslında PHP_OS_FAMILY'i kullanabilirdik ama o PHP 7.2+ sürümü için geçerli. Bir daha ona dönmeyelim.
