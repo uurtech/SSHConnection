@@ -1,7 +1,7 @@
 <?php 
 
-define("REMOTE_IP","YOUR_IP");
-define("PASSWORD","YOUR_PASSWORD");
+define("REMOTE_IP","162.243.185.227");
+define("PASSWORD","Kazdal89!");
 
 $site = $argv[1];
 $configurationFileName = $site.".conf";
@@ -14,9 +14,9 @@ if(!file_exists($configurationFileName)){
 	    ServerName ".$site."
 	    ServerAlias www.".$site."
 	    ServerAdmin webmaster@localhost
-	    DocumentRoot /var/www/html/".$site."
-	    ErrorLog /var/www/html/".$site."/error.log
-	    CustomLog /var/www/html/".$site."/access.log combined
+	    DocumentRoot /var/www/".$site."
+	    ErrorLog /var/www/".$site."/error.log
+	    CustomLog /var/www/".$site."/access.log combined
 	</VirtualHost>
 	";
 
@@ -51,7 +51,7 @@ if(!file_exists($configurationFileName)){
 	$stream_out = ssh2_fetch_stream($stream, SSH2_STREAM_STDIO);
 	echo stream_get_contents($stream_out);
 
-	$stream = ssh2_exec($connection,'mkdir /var/www/html/'.$site);
+	$stream = ssh2_exec($connection,'mkdir /var/www/'.$site);
 	stream_set_blocking($stream, true);
 	$stream_out = ssh2_fetch_stream($stream, SSH2_STREAM_STDIO);
 	echo stream_get_contents($stream_out);
@@ -69,7 +69,7 @@ $hostFileLocation = "";
 if(strpos(PHP_OS,"WIN") !== false){
 	//buralar windows
 	$hostFileLocation = "C:\\Windows\\System32\\drivers\\etc\\hosts";
-}else if(strpos(PHP_OS,"Unkown") !== false){
+}else if(strpos(PHP_OS,"Unknown") !== false){
 	//buralar bilinmiyor,
 	die("Ne kullanıyorsun sen kardeş");
 }else{
