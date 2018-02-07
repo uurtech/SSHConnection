@@ -2,7 +2,7 @@
 
 define("REMOTE_IP","YOUR_IP");
 define("PASSWORD","YOUR_PASS");
-
+ 
 $site = $argv[1];
 $configurationFileName = $site.".conf";
 
